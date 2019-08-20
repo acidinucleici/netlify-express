@@ -4,24 +4,13 @@ const serverless = require('serverless-http');
 const app = express();
 const bodyParser = require('body-parser');
 
-const router = express.Router();
-router.get('/', (req, res) => {
-  
-  var user_id = req.param('id');
-  var token = req.param('token');
-  
-  res.writeHead(200, { 'Content-Type': 'text/html' });
-  res.write('<h1>Hello from Express.js!</h1>'  + user_id);
-  res.end();
+app.post('/api/', function(req, res) {
+    var user_id = req.body.id;
+    var token = req.body.token;
+    var geo = req.body.geo;
+
+    res.send(user_id + ' ' + token + ' ' + geo);
 });
-
-
-
-router.get('/another', (req, res) => res.json({ route: req.originalUrl }));
-router.post('/', (req, res) => res.json({ postBody: req.body }));
-
-app.use(bodyParser.json());
-app.use('/.netlify/functions/server', router);  // path must route to lambda
 
 module.exports = app;
 module.exports.handler = serverless(app);
