@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
   var token = req.param('token');
   
   res.writeHead(200, { 'Content-Type': 'text/html' });
-  res.write('<h1>Hello from Express.js!</h1> + user_id');
+  res.write('<h1>Hello from Express.js!</h1>'  + user_id);
   res.end();
 });
 
