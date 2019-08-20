@@ -1,6 +1,6 @@
 {
   "name": "express-parameters",
-  "main": "server.js",
+  "main": "mserver.js",
   "dependencies": {
     "express": "~4.10.2"
   }
